@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Bus> buslist=new ArrayList<>();
+		buslist.add(new Bus(3, "gaurav",130.0));
+		buslist.add(new Bus(2, "deepa",110.0));
+		buslist.add(new Bus(1, "rama",120.0));
+		buslist.stream().forEach(e->System.out.println(e));
+		Collections.sort(buslist);
+		buslist.stream().forEach(e->System.out.println(e));
+		Collections.sort(buslist, (Bus b1,Bus b2)->{
+			Double d1=b1.getCost();
+			Double d2=b2.getCost();
+			return d1.compareTo(d2);
+		});
+		
+		buslist.stream().forEach(e->System.out.println(e));
+
+
+		
+
+	}
+
+}

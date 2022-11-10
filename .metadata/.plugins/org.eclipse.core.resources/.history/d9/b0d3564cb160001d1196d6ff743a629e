@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Bus> buslist=new ArrayList<>();
+		buslist.add(new Bus(3, "gaurav",130.0));
+		buslist.add(new Bus(2, "deepa",110.0));
+		buslist.add(new Bus(1, "rama",120.0));
+		buslist.stream().forEach(e->System.out.println(e));
+		Collections.sort(buslist);
+		buslist.stream().forEach(e->System.out.println(e));
+			//java 8
+
+		  System.out.println("\n java 8 using cost comparator");
+		  Collections.sort(buslist, (Bus b1,Bus b2)->{ Double d1=b1.getCost(); Double
+		  d2=b2.getCost(); return d1.compareTo(d2); });
+		  
+		  //java 8 using names comparator
+		  System.out.println("\n java 8 using names comparator");
+		  Collections.sort(buslist, (a1,a2)->{
+			return  a1.getName().compareTo(a2.getName());
+		  });
+		 
+		
+		// in java 7
+		Collections.sort(buslist, new CostComparator());
+		System.out.println("\n highest to lowest");
+		buslist.stream().forEach(e->System.out.println(e));
+
+		
+		
+		// in java 7
+		Collections.sort(buslist, new NameComparator());
+		System.out.println("\n highest to lowest of names");
+		buslist.stream().forEach(e->System.out.println(e));
+		
+
+		
+
+	}
+
+}

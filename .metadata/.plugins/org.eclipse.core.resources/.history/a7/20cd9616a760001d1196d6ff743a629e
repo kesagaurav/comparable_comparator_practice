@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Bus> buslist=new ArrayList<>();
+		buslist.add(new Bus(3, "gaurav",100.0));
+		buslist.add(new Bus(2, "deepa",110.0));
+		buslist.add(new Bus(1, "rama",120.0));
+		buslist.stream().forEach(e->System.out.println(e));
+		Collections.sort(buslist);
+		
+
+	}
+
+}
